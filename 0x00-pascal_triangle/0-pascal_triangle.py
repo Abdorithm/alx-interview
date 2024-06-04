@@ -2,6 +2,8 @@
 """
 Generate Pascal's Triangle
 """
+
+
 def pascal_triangle(n):
     """
     Returns a list of lists of integers representing
@@ -19,6 +21,3 @@ def pascal_triangle(n):
         append_list.append(1)
         result.append(append_list)
     return result
-
-#if __name__ == "__main__":
-#    print(pascal_triangle(6))
