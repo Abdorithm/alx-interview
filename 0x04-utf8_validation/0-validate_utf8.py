@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-""" Valid UTF-8 checker """
+"""
+Valid UTF-8 checker
+"""
 
 
-def validUTF8(data: list[int]) -> bool:
-    """ method to check for valid utf-8 data """
+def validUTF8(data):
+    """ Method to check for valid utf-8 data
+        Return: True if data is valid, False otherwise"""
     num_of_bytes = 0
 
     for value in data:
