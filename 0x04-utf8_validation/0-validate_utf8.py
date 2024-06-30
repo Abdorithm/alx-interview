@@ -8,6 +8,7 @@ def validUTF8(data):
     """ Method to check for valid utf-8 data
         Return: True if data is valid, False otherwise"""
     num_of_bytes = 0
+    data = [n & 255 for n in data]
 
     for value in data:
         if num_of_bytes > 0:
