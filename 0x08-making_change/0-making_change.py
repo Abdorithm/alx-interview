@@ -20,12 +20,19 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    dp = [0] * (total + 1)
+    # Sort coins in descending order for greedy approach
+    coins.sort(reverse=True)
+
+    # Use a list instead of float('inf') for better performance
+    dp = [total + 1] * (total + 1)
+    dp[0] = 0
 
     for i in range(1, total + 1):
-        dp[i] = float('inf')
         for coin in coins:
-            if i - coin >= 0:
+            if coin <= i:
                 dp[i] = min(dp[i], dp[i - coin] + 1)
+            else:
+                # Break early if coin value exceeds current amount
+                break
 
-    return dp[total] if dp[total] != float('inf') else -1
+    return dp[total] if dp[total] <= total else -1
