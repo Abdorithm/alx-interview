@@ -20,12 +20,18 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    dp = [total + 1] * (total + 1)
-    dp[0] = 0
+    coins.sort(reverse=True)
 
-    for i in range(1, total + 1):
-        for coin in coins:
-            if coin <= i:
-                dp[i] = min(dp[i], dp[i - coin] + 1)
+    coin_count = 0
+    remaining = total
 
-    return dp[total] if dp[total] <= total else -1
+    for coin in coins:
+        if coin <= remaining:
+            num_coins = remaining // coin
+            coin_count += num_coins
+            remaining -= num_coins * coin
+
+        if remaining == 0:
+            return coin_count
+
+    return -1
