@@ -21,8 +21,7 @@ def isWinner(x, nums):
                 prefix_sum[i] = prefix_sum[i-1]
         return prefix_sum
 
-    max_n = max(nums)
-    prefix_sum = sieve_and_prefix_sum(max_n)
+    prefix_sum = sieve_and_prefix_sum(10000)
 
     maria_wins = 0
     ben_wins = 0
