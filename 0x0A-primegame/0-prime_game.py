@@ -27,13 +27,14 @@ def isWinner(x, nums):
     maria_wins = 0
     ben_wins = 0
 
-    for n in nums:
-        prime_count = prefix_sum[n]
-        if prime_count % 2 == 1:
-            maria_wins += 1
-        else:
-            ben_wins += 1
-
+    for round in range(x):
+        if round < len(nums):
+            n = nums[round]
+            prime_count = prefix_sum[n]
+            if prime_count % 2 == 1:
+                maria_wins += 1
+            else:
+                ben_wins += 1
     if maria_wins > ben_wins:
         return "Maria"
     elif ben_wins > maria_wins:
